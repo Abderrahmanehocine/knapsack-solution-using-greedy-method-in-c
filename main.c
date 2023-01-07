@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-
-
 void knapsack_solution(int m, int *profit, int *weight, int size){
     int used[size];
     int cur_weight, item;
@@ -39,14 +37,19 @@ void knapsack_solution(int m, int *profit, int *weight, int size){
 
 int main(int *argc, int **argv){
     int number_of_objects, max_weight;
+    // scan the capacity number of the bag
     printf("Enter the max weight: ");
     scanf("%d",&max_weight);
+    
+    // scan the number of items
     printf("Enter number of objects: ");
     scanf("%d",&number_of_objects);
+    
     int profit[number_of_objects];
     int weight[number_of_objects];
-    float pw[number_of_objects];
     printf("\n\nEnter the profit and the weight of each object: \n\n");
+    
+    // scan the profit and the weight of each item
     int i;
     for(i=0 ; i<number_of_objects ; i++){
         printf("Object number %d:\n",i+1);
@@ -57,6 +60,7 @@ int main(int *argc, int **argv){
         pw[i] = (float)profit[i]/(float)weight[i];
         printf("\n");
     }
+    
     knapsack_solution(max_weight, profit, weight, number_of_objects);
     return 0;
 }
